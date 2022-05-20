@@ -8,6 +8,8 @@ class Converter:
     def save_images_to_pdf(filename, image_dir, pdf_dir):
         images = []
         for image in os.listdir(image_dir):
+            if 'jpg' not in image:
+                continue
             images.append(Image.open(image_dir + '/' + image))
         im1 = images.pop(0)
         pdf1_filename = filename + ".pdf"
